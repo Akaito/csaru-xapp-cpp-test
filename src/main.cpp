@@ -25,6 +25,10 @@ int main (int argc, char * argv[]) {
 	app.AddWindow(&winB);
 
 	while (app.HasOpenWindows()) {
+		app.PollEvents();
+		if (app.IsQuitting())
+			break;
+
 		winA.Clear();
 		winB.Clear();
 		winA.Render();
