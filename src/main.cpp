@@ -19,9 +19,11 @@ int main (int argc, char * argv[]) {
 	csaru::xapp::Window winB;
 
 	winA.Init("Win A", 1366, 768);
+	SDL_SetRenderDrawColor(winA.SdlRenderer(), 0x00, 0x00, 0x00, 0xFF);
 	app.AddWindow(&winA);
 
 	winB.Init("Win B",  640, 480);
+	SDL_SetRenderDrawColor(winB.SdlRenderer(), 0xFF, 0xFF, 0xFF, 0xFF);
 	app.AddWindow(&winB);
 
 	while (app.HasOpenWindows()) {
@@ -31,9 +33,12 @@ int main (int argc, char * argv[]) {
 
 		winA.Clear();
 		winB.Clear();
+
+		winA.DebugPrint("Hello");
+		winB.DebugPrint("World");
+
 		winA.Render();
 		winB.Render();
-
 		SDL_Delay(16); // 16 milliseconds
 	}
 
