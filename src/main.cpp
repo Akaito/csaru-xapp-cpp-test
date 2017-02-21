@@ -62,6 +62,8 @@ int main (int argc, char * argv[]) {
 
 	winA.DebugPrint("Hello");
 	winB.DebugPrint("World");
+	winB.DebugPrint("second line\n with newline");
+	winB.DebugPrint("third line");
 
 	while (app.HasOpenWindows()) {
 		app.PollEvents();
